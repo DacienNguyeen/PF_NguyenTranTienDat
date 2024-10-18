@@ -71,6 +71,11 @@ namespace PF_NguyenTranTienDat
             while (true);
         }
 
+        static void ex3()
+        {
+
+        }
+
         static void Main(string[] args) 
         {
             ex2();
