@@ -92,6 +92,11 @@ namespace PF_NguyenTranTienDat
                     double divide = a / b;
                     double mod = a % b;
                     break;
+                    Console.WriteLine($"{a} + {b} = {sum}");
+                    Console.WriteLine($"{a} - {b} = {subtract}");
+                    Console.WriteLine($"{a} * {b} = {multiply}");
+                    Console.WriteLine($"{a} / {b} = {divide}");
+                    Console.WriteLine($"{a} mod {b} = {mod}");
                 }
                 else
                 {
