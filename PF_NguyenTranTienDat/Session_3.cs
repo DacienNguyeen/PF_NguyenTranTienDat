@@ -71,14 +71,39 @@ namespace PF_NguyenTranTienDat
             while (true);
         }
 
+        //Write a program in C# that calculates the result of adding, subtracting,
+        //multiplying and dividing two numbers entered by the user.
         static void ex3()
         {
-
+            do
+            {
+                double a, b;
+                string a_input, b_input;
+                Console.Write("Input number for a to calculate: a = ");
+                a_input = Console.ReadLine();
+                Console.Write("Input number for b to calculate: b = ");
+                b_input = Console.ReadLine();
+                //Deny strirng
+                if (double.TryParse(a_input, out a) && double.TryParse(b_input, out b))
+                {
+                    double sum = a + b;
+                    double subtract = a - b;
+                    double multiply = a * b;
+                    double divide = a / b;
+                    double mod = a % b;
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Please input numeric value");
+                }
+            }
+            while (true);
         }
 
         static void Main(string[] args) 
         {
-            ex2();
+            ex3();
             Console.ReadKey();
         }
     }
