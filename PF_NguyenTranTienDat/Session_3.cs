@@ -106,7 +106,7 @@ namespace PF_NguyenTranTienDat
             while (true);
         }
 
-        static void Main(string[] args) 
+        static void Main3(string[] args) 
         {
             ex3();
             Console.ReadKey();
