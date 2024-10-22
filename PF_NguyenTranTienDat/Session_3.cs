@@ -105,11 +105,10 @@ namespace PF_NguyenTranTienDat
             }
             while (true);
         }
-
-        static void Main3(string[] args) 
-        {
-            ex3();
-            Console.ReadKey();
-        }
+        //static void Main(string[] args) 
+        //{
+        //    ex3();
+        //    Console.ReadKey();
+        //}
     }
 }
