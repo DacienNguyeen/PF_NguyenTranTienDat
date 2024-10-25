@@ -16,13 +16,13 @@ namespace PF_NguyenTranTienDat
 
         static void ex2()
         {
-            int y, x = 0;
+            double y, x = 0;
             for (y = -5; y <= 5; y++)
             {
 
-                x = y * 2 + 2 * y + 1;
+                x = Math.Pow(y,2) + 2 * y + 1;
+                Console.WriteLine($"x = {x}");
             }
-            Console.WriteLine($"x = {x}");
         }
 
         //Write a C# Sharp program that takes distance and time (hours, minutes,
@@ -288,9 +288,56 @@ namespace PF_NguyenTranTienDat
             } 
         }
 
+        //read 10 num as an array and find avg and sum
+        static void ex3_flow()
+        {
+            Console.Write("Input an array of numbers separated by commas (,), spaces (  ), or semicolons (;): ");
+            string input = Console.ReadLine();
+
+            // Splitting
+            string[] arrayStrings = input.Split(new char[] { ' ', ',', ';', '(', ')' }, StringSplitOptions.RemoveEmptyEntries);
+            double[] array = new double[arrayStrings.Length];
+
+            if (arrayStrings.Length > 10)
+            {
+                Console.WriteLine("The array cannot contain more than 10 values");
+            }
+            else
+            {
+                    // Read values and check for blank or non-numeric inputs
+                    bool isValid = true;
+                    double sum_arr = 0;
+                    for (int i = 0; i < arrayStrings.Length; i++)
+                    {
+                        // Check if the string is empty or cannot be parsed as a double
+                        if (string.IsNullOrEmpty(arrayStrings[i]) || !double.TryParse(arrayStrings[i], out array[i]))
+                        {
+                            isValid = false;
+                            Console.WriteLine($"value in order {i} = {arrayStrings[i]} is Invalid: Please enter a numeric value.");
+                        }
+                        else
+                        {
+                            sum_arr += array[i];
+                        }
+                    }
+
+                    // Calculate and print average if all inputs are valid
+                    if (isValid)
+                    {
+                        double avg_arr = sum_arr / arrayStrings.Length;
+                        Console.WriteLine($"sum = {sum_arr}");
+                        Console.WriteLine($"average = {avg_arr}");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid input detected. Please try again.");
+                    }
+            }
+        }
+
         static void Main(string[] args)
         {
-            ques1_flow_p2();
+            ex3_flow();
             Console.ReadKey();
         }
     }
