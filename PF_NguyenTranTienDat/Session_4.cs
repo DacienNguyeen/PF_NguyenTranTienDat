@@ -1,4 +1,9 @@
-using System;
+﻿using System;
+using System.ComponentModel;
+using System.Drawing;
+using System.Reflection.Metadata.Ecma335;
+using System.Runtime.Intrinsics.X86;
+using System.Threading.Tasks;
 namespace PF_NguyenTranTienDat
 {
     internal class Session_4_Operators
@@ -69,9 +74,223 @@ namespace PF_NguyenTranTienDat
             Console.WriteLine($"Velocity in miles/h: {velocity_mile_per_hour:F2}");
         }
 
+        //5. Write a C# Sharp program that takes a character as input and checks if it
+        //is a vowel, a digit, or any other symbol.
+        static void ex5()
+        {
+            //Step - by - Step Breakdown:
+            //Take input from the user: We will ask the user to input a single character.
+            //Check if the character is a vowel: Vowels include 'a', 'e', 'i', 'o', 'u' and their uppercase equivalents.
+            //Check if the character is a digit: We can use the built -in Char.IsDigit() method to check if the input is a digit.
+            //Check if it's another symbol: If the character is not a vowel or a digit, we'll classify it as "other symbol."
+            Console.Write("Input a character: ");
+            char input = Console.ReadKey().KeyChar;
+            Console.WriteLine();   
+            char[] vowel = { 'u', 'e', 'o', 'a', 'i' };
+
+            // Flag to track if the character is a vowel
+            bool isVowel = false;
+
+            // Loop to check if the input is a vowel
+            for(int i = 0; i < vowel.Length; i++)
+            {
+                if(vowel[i] == input || vowel[i]==char.ToLower(input))
+                {
+                    isVowel=true;
+                    break;
+                }
+            }
+
+                if (isVowel)
+                {
+                    Console.WriteLine("Input character is a vowel");
+                }
+                else if (char.IsDigit(input))
+                {
+                    Console.WriteLine("Input character is a digit");
+                }
+                else
+                {
+                    Console.WriteLine("Input character is other symbol");
+            }
+        }
+
+        //Write a C# Sharp program to accept a coordinate point in an XY
+        //coordinate system and determine in which quadrant the coordinate
+        //point lies.
+        static void ques3_flow()
+        {
+            Console.Write("Enter coordinates (X;Y) -> X = ");
+            double x = double.Parse(Console.ReadLine());
+            Console.Write("Enter coordinates (X;Y) -> Y = ");
+            double y = double.Parse(Console.ReadLine());
+
+            if (x > 0)
+            {
+                if (y > 0)
+                {
+                    Console.WriteLine($"the coordinate point lies ({x};{y}) in the first quadrant");
+                }
+                else
+                {
+                    Console.WriteLine($"the coordinate point lies ({x};{y}) in the fourth quadrant");
+                }
+            }
+            else if (x == 0 && y != 0)
+            {
+                if(y > 0)
+                {
+                    Console.WriteLine("it will lies in the head of y axis");
+                }
+                else
+                {
+                    Console.WriteLine("it will lies in the tail of y axis");
+                }
+            }
+
+            else if (x != 0 && y == 0)
+            {
+                if (x > 0)
+                {
+                    Console.WriteLine("it will lies on the right of x axis");
+                }
+                else
+                {
+                    Console.WriteLine("it will lies on the left of x axis");
+                }
+            }
+
+            else if (x == 0 && y ==0)
+            {
+                Console.WriteLine("The coordinate point lies exactly in the origin (0;0)");
+            }
+            else
+            {
+                if (y > 0)
+                {
+                    Console.WriteLine($"the coordinate point lies ({x};{y}) in the second quadrant");
+                }
+                if(y < 0)
+                {
+                    Console.WriteLine($"the coordinate point lies ({x};{y}) in the third quadrant");
+                }
+            }
+        }
+
+        //Write a program to check whether a triangle is Equilateral, Isosceles or Scalene.
+        static void ques1_flow_p2()
+        {
+            ////Choose input options
+            //Console.WriteLine("Choose input option to check a triangle");
+            //Console.WriteLine("Press 1, to input 3 edge lengths");
+            //Console.WriteLine("Press 2, to input 2 edge lengths and 1 angle");
+            //Console.WriteLine("Press 3, to input 1 edge length and 2 angles");
+
+            //static double GetTriangleSides2(double a, double b, double angleC)
+            //{
+
+            //}
+
+            //static double GetTriangleSides3(double sideA, double angleA, double angleB)
+            //{
+
+            //}
+
+            while (true)
+            {
+                Console.Write("Input the lengths of 3 edges seperated by commas (,), spaces (  ), or semicolons (;): ");
+                string input = Console.ReadLine();
+
+                //splitting
+                string[] edgeStrings = input.Split(new char[] { ' ', ',', ';', '(', ')' }, StringSplitOptions.RemoveEmptyEntries);
+
+                //Check if 3 values are provides
+                if (edgeStrings.Length != 3)
+                {
+                    Console.WriteLine("Please provide exactly 3 edge lengths!");
+                    continue;
+                }
+
+                //Try to parse the input as positive numeric values
+                double[] edges = new double[3];
+                bool isValid = true;
+
+                for (int i = 0; i < edgeStrings.Length; i++)
+                {
+                    if (!double.TryParse(edgeStrings[i], out edges[i]) || edges[i] <= 0)
+                    {
+                        isValid = false;
+                        break;
+                    }
+                }
+
+                if (!isValid)
+                {
+                    Console.WriteLine("Invalid input. Ensure all values are positive numbers and numeric");
+                    continue;
+                }
+
+                double longestEdge = Math.Max(edges[0], Math.Max(edges[1], edges[2]));
+
+                double otherEdge1, otherEdge2;
+
+                // Determine which two are the other edges
+                if (longestEdge == edges[0])
+                {
+                    otherEdge1 = edges[1];
+                    otherEdge2 = edges[2];
+                }
+                else if (longestEdge == edges[1])
+                {
+                    otherEdge1 = edges[0];
+                    otherEdge2 = edges[2];
+                }
+                else
+                {
+                    otherEdge1 = edges[0];
+                    otherEdge2 = edges[1];
+                }
+
+                // Check the Pythagorean theorem: longestEdge^2 == otherEdge1^2 + otherEdge2^2
+                if (Math.Round(Math.Pow(longestEdge, 2),2) == Math.Round(Math.Pow(otherEdge1, 2) + Math.Pow(otherEdge2, 2),2))
+                {
+                    if(otherEdge1 == otherEdge2)
+                    {
+                        Console.WriteLine("The triangle is a right Isoscele.");
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("The triangle is a right triangle.");
+                        break;
+                    }
+                }
+
+                if(otherEdge2 == otherEdge1)
+                {
+                    if(otherEdge2 == longestEdge)
+                    {
+                        Console.WriteLine("The triangle is Equilateral.");
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("The triangle is an Isoscele.");
+                        break;
+                    }
+                }
+                
+                if(otherEdge2 != otherEdge1 &&  otherEdge2 != longestEdge && Math.Pow(longestEdge, 2) != Math.Pow(otherEdge1, 2) + Math.Pow(otherEdge2, 2))
+                {
+                    Console.WriteLine("The triangle is a Scalene.");
+                    break;
+                }
+            } 
+        }
+
         static void Main(string[] args)
         {
-            ex3();
+            ques1_flow_p2();
             Console.ReadKey();
         }
     }
