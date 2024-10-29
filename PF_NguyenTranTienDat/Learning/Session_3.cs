@@ -1,6 +1,6 @@
 using System;
 
-namespace PF_NguyenTranTienDat
+namespace PF_NguyenTranTienDat.Learning
 {
     internal class Session_3
     {
@@ -24,7 +24,7 @@ namespace PF_NguyenTranTienDat
                     }
                     Console.WriteLine($"The input Celsius degree = {cel}");
                     double K = number + 273.15; // Use `number` for arithmetic
-                    double F = (number * 9 / 5) + 32; // Use `number` for arithmetic
+                    double F = number * 9 / 5 + 32; // Use `number` for arithmetic
                     Console.WriteLine($"In Kelvin degree = {K}");
                     Console.WriteLine($"In Fahrenheit degree = {F}");
                     break;
@@ -36,7 +36,7 @@ namespace PF_NguyenTranTienDat
             }
             while (true);
         }
-        
+
         //Create a program in C# for calculate the surface and volume of a sphere, given its radius.
         //- surface= 4 * pi * radius squared
         //- volume= 4 / 3 * pi * radius cubed
@@ -48,17 +48,17 @@ namespace PF_NguyenTranTienDat
                 string r_input;
                 Console.Write("Input radius to calculate the surface and volume of a sphere: ");
                 r_input = Console.ReadLine();
-                
+
                 //Deny strirng, and value equal or smaller than 0
-                if(double.TryParse(r_input, out r))
+                if (double.TryParse(r_input, out r))
                 {
-                    if(r <= 0)
+                    if (r <= 0)
                     {
                         Console.WriteLine("radius must be greater than 0");
                         continue;
                     }
-                    double surface = 4*Math.PI*Math.Pow(r,2);
-                    double volume = 4/3*Math.PI*Math.Pow(r,3);
+                    double surface = 4 * Math.PI * Math.Pow(r, 2);
+                    double volume = 4 / 3 * Math.PI * Math.Pow(r, 3);
                     Console.WriteLine($"Surface = {surface}");
                     Console.WriteLine($"Volume = {volume}");
                     break;
@@ -66,7 +66,7 @@ namespace PF_NguyenTranTienDat
                 else
                 {
                     Console.WriteLine("Please input numeric value");
-                }    
+                }
             }
             while (true);
         }
