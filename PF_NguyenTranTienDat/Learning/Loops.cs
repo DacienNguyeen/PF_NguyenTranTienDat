@@ -53,10 +53,10 @@ namespace PF_NguyenTranTienDat.Learning
             }
         }
 
-        static void Main( string[] args )
-        {
-            tach_ho_ten();
-            Console.ReadKey();
-        }
+        //static void Main( string[] args )
+        //{
+        //    tach_ho_ten();
+        //    Console.ReadKey();
+        //}
     }
 }
