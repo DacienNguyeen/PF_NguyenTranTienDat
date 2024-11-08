@@ -120,39 +120,39 @@ namespace PF_NguyenTranTienDat.Learning
             return true;
         }
 
-        static void Main(string[] args)
-        {
-            ////double[] a = { 4, 56, 12, 34, 23, 123, 0 };
-            ////double max_value = a.Max();
-            //double max_value = max(4, 56, 12, 34, 23, 123, 0);
-            //Console.WriteLine(max_value);
-            //double factorial_value = factorial(10);
-            //Console.WriteLine(factorial_value);
-            //int num = 6;
-            //bool check_prime = IsPrime(num);
-            //bool check_perfect = IsPerfect(num);
-            //Console.WriteLine(check_prime);
-            //Console.WriteLine(check_perfect);
-            //int[] a = { 4, 56, 12, 34, 23, 11, 123, 0 };
-            //int[] a1 = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 };
-            //int[] a_prime = GetPrime(30, 6, a);
-            //for(int i = 0;i < a_prime.Length;i++)
-            //{
-            //    Console.Write($"{a_prime[i]} ");
-            //}
-            //Console.WriteLine();
+        //static void Main(string[] args)
+        //{
+        //    //double[] a = { 4, 56, 12, 34, 23, 123, 0 };
+        //    //double max_value = a.Max();
+        //    double max_value = max(4, 56, 12, 34, 23, 123, 0);
+        //    Console.WriteLine(max_value);
+        //    double factorial_value = factorial(10);
+        //    Console.WriteLine(factorial_value);
+        //    int num = 6;
+        //    bool check_prime = IsPrime(num);
+        //    bool check_perfect = IsPerfect(num);
+        //    Console.WriteLine(check_prime);
+        //    Console.WriteLine(check_perfect);
+        //    int[] a = { 4, 56, 12, 34, 23, 11, 123, 0 };
+        //    int[] a1 = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 };
+        //    int[] a_prime = GetPrime(30, 6, a);
+        //    for (int i = 0; i < a_prime.Length; i++)
+        //    {
+        //        Console.Write($"{a_prime[i]} ");
+        //    }
+        //    Console.WriteLine();
 
-            //for(int i = 1; i < 1000;i++)
-            //{
-            //    if (IsPerfect(i))
-            //    {
-            //        Console.Write($"{i} ");
-            //    }
-            //}
-            //Console.WriteLine();
-            string testString = "The quick brown fox jumps over the laz dog";
-            Console.WriteLine(IsPangram(testString));
-        }
+        //    for (int i = 1; i < 1000; i++)
+        //    {
+        //        if (IsPerfect(i))
+        //        {
+        //            Console.Write($"{i} ");
+        //        }
+        //    }
+        //    Console.WriteLine();
+        //    string testString = "The quick brown fox jumps over the laz dog";
+        //    Console.WriteLine(IsPangram(testString));
+        //}
     }
 
 }
