@@ -121,16 +121,58 @@ namespace PF_NguyenTranTienDat.Learning
             }
 
             int[] jagged_a_col = column.ToArray();
-            for(int j = 0; j < jagged_a_col.Length; j++)
+
+            for (int i = 0; i < r; i++)
             {
-                Console.Write($"Enter {jagged_a_col[j]} value(s) for the {j + 1} row: ");
+                Console.Write($"Enter {column[i]} value(s) for row {i + 1} (space or comma-separated): ");
+                string input = Console.ReadLine();
+
+                // Split the input string by space or comma
+                string[] values = input.Split(new char[] { ' ', ',' }, StringSplitOptions.RemoveEmptyEntries);
+
+                // Check if the number of entered values matches the expected column count
+                if (values.Length != column[i])
+                {
+                    Console.WriteLine($"Incorrect number of values entered. Expected {column[i]}, got {values.Length}. Please try again.");
+                    i--; // Decrement i to re-enter values for this row
+                    continue;
+                }
+
+                jagged_a[i] = new int[column[i]];
+                for (int j = 0; j < column[i]; j++)
+                {
+                    jagged_a[i][j] = int.Parse(values[j]);
+                }
             }
+            Console.WriteLine("Your created jagged array is below: ");
+            for(int i = 0; i < jagged_a.Length; i++)
+            {
+                for (int j = 0;j < jagged_a[i].Length; j++)
+                {
+                    Console.Write(jagged_a[i][j] + " ");
+                }
+                Console.WriteLine();
+            }
+
+            List<int> max_by_row = new List<int>();
+            for(int i = 0;i < jagged_a.Length;i++)
+            {
+                max_by_row.Add(jagged_a[i].Max());
+            }
+
+            Console.WriteLine("Maximum values by row:");
+            foreach (int max in max_by_row)
+            {
+                Console.WriteLine(max);
+            }
+
+            Console.WriteLine($"The largest element of whole array: {max_by_row.Max()}");
         }
 
         static void Main(string[] args)
         {
             jagged_array_exc2();
             Console.ReadKey();
-        }    
+        }
     }
 }
