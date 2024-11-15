@@ -151,78 +151,78 @@ using System.Threading.Tasks;
 
 public class CompanyGroupsNoStruct
 {
-    static void Main(string[] args)
-    {
-        // Parallel arrays to store member data
-        int[][] ids = new int[][]
-        {
-            new int[] { 101, 102, 103, 104, 105 }, // IDs for group 1
-            new int[] { 201, 202, 203 },      // IDs for group 2
-            new int[] { 301, 302, 303, 304, 305, 306 } // IDs for group 3
-        };
+    //static void Main(string[] args)
+    //{
+    //    // Parallel arrays to store member data
+    //    int[][] ids = new int[][]
+    //    {
+    //        new int[] { 101, 102, 103, 104, 105 }, // IDs for group 1
+    //        new int[] { 201, 202, 203 },      // IDs for group 2
+    //        new int[] { 301, 302, 303, 304, 305, 306 } // IDs for group 3
+    //    };
 
-        string[][] names = new string[][]
-        {
-            new string[] { "Alice Smith", "Bob Johnson", "Eve Jackson","Paul Mick", "Jungle Yi" },
-            new string[] { "Charlie Brown", "David Lee" ,"John Thomas"},
-            new string[] { "Frank Miller", "Grace Wilson", "Helen Thomas", "Ivy Roberts" ,"Millet Sung","Grace Olivia"}
-        };
+    //    string[][] names = new string[][]
+    //    {
+    //        new string[] { "Alice Smith", "Bob Johnson", "Eve Jackson","Paul Mick", "Jungle Yi" },
+    //        new string[] { "Charlie Brown", "David Lee" ,"John Thomas"},
+    //        new string[] { "Frank Miller", "Grace Wilson", "Helen Thomas", "Ivy Roberts" ,"Millet Sung","Grace Olivia"}
+    //    };
 
-        int[][] tasks = new int[][]
-        {
-            new int[] { 5, 3, 8, 6, 2 },
-            new int[] { 7, 8, 9},
-            new int[] { 4, 9, 3, 6,5,4 }
-        };
+    //    int[][] tasks = new int[][]
+    //    {
+    //        new int[] { 5, 3, 8, 6, 2 },
+    //        new int[] { 7, 8, 9},
+    //        new int[] { 4, 9, 3, 6,5,4 }
+    //    };
 
-        //Menu for selection
-        while (true)
-        {
-            Console.WriteLine("Choose an action:");
-            Console.WriteLine("1. Print all members");
-            Console.WriteLine("2. Print member by IDs");
-            Console.WriteLine("3. Print member with most tasks");
-            Console.WriteLine("4. Print member with fewest tasks by group");
-            Console.WriteLine("5. Exit");
+    //    //Menu for selection
+    //    while (true)
+    //    {
+    //        Console.WriteLine("Choose an action:");
+    //        Console.WriteLine("1. Print all members");
+    //        Console.WriteLine("2. Print member by IDs");
+    //        Console.WriteLine("3. Print member with most tasks");
+    //        Console.WriteLine("4. Print member with fewest tasks by group");
+    //        Console.WriteLine("5. Exit");
 
-            int choice = int.Parse(Console.ReadLine());
+    //        int choice = int.Parse(Console.ReadLine());
 
-            switch (choice)
-            {
-                case 1:
-                    PrintAllMembers(ids, names, tasks);
-                    break;
-                case 2:
-                    Console.Write("Enter Member's IDs (seperated by blank space) to look up information: ");
-                    string input = Console.ReadLine();
+    //        switch (choice)
+    //        {
+    //            case 1:
+    //                PrintAllMembers(ids, names, tasks);
+    //                break;
+    //            case 2:
+    //                Console.Write("Enter Member's IDs (seperated by blank space) to look up information: ");
+    //                string input = Console.ReadLine();
 
-                    string[] values = input.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+    //                string[] values = input.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
 
-                    int[] ids_lookup = new int[values.Length];
+    //                int[] ids_lookup = new int[values.Length];
 
-                    for(int  i = 0; i < values.Length; i++)
-                    {
-                        ids_lookup[i] = int.Parse(values[i]);
-                    }
+    //                for(int  i = 0; i < values.Length; i++)
+    //                {
+    //                    ids_lookup[i] = int.Parse(values[i]);
+    //                }
 
-                    PrintMemberByIDs(ids, names, tasks, ids_lookup);
-                    break;
-                case 3:
-                    PrintMemberWithMostTasks(ids, names, tasks);
-                    break;
-                case 4:
-                    Console.Write("Enter the number of group: ");
-                    int group = int.Parse(Console.ReadLine());
-                    PrintMemberWithFewestTasksByGroup(ids, names, tasks,group);
-                    break;
-                case 5:
-                    return; // Exit the program
-                default:
-                    Console.WriteLine("Invalid choice.");
-                    break;
-            }
-        }
-    }
+    //                PrintMemberByIDs(ids, names, tasks, ids_lookup);
+    //                break;
+    //            case 3:
+    //                PrintMemberWithMostTasks(ids, names, tasks);
+    //                break;
+    //            case 4:
+    //                Console.Write("Enter the number of group: ");
+    //                int group = int.Parse(Console.ReadLine());
+    //                PrintMemberWithFewestTasksByGroup(ids, names, tasks,group);
+    //                break;
+    //            case 5:
+    //                return; // Exit the program
+    //            default:
+    //                Console.WriteLine("Invalid choice.");
+    //                break;
+    //        }
+    //    }
+    //}
 
     static void PrintAllMembers(int [][] ids,string [][] names, int [][] tasks)
     {

@@ -1,6 +1,8 @@
-﻿using System;
+﻿using PriceGuessingGame;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
+using System.Data.Common;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
@@ -11,21 +13,22 @@ namespace PF_NguyenTranTienDat.Learning
 {
     internal class Session_6
     {
-        //static void Main(string[] args)
-        //{
-        //    //Console.WriteLine("How many item(s) will be in your array? ");
-        //    //int N = int.Parse(Console.ReadLine());
-        //    //int[] a = new int[N];
-        //    ////manually_input_array(a, N);
-        //    //randomize_element_array(a, N);
-        //    //print_array(a);
-        //    //Console.WriteLine(sum_array(a));
-        //    //increase_value(a, 2);
-        //    //print_array(a);
-        //    //Console.WriteLine(sum_array(a));
-        //    //single_dimension_array_exc();
-        //    jagged_array_exc2();
-        //}
+        static void Main2(string[] args)
+        {
+            //Console.WriteLine("How many item(s) will be in your array? ");
+            //int N = int.Parse(Console.ReadLine());
+            //int[] a = new int[N];
+            ////manually_input_array(a, N);
+            //randomize_element_array(a, N);
+            //print_array(a);
+            //Console.WriteLine(sum_array(a));
+            //increase_value(a, 2);
+            //print_array(a);
+            //Console.WriteLine(sum_array(a));
+            //single_dimension_array_exc();
+            Matrix_exc();
+
+        }
 
         static void manually_input_array(int[] a, int N)
         {
@@ -104,7 +107,7 @@ namespace PF_NguyenTranTienDat.Learning
             int[] dup_ele = GetDuplicatedElement(newly_updated_a);
             Console.Write("Duplicated element of the array above is: ");
             foreach (int ele in dup_ele)
-                Console.Write(ele+ " ");
+                Console.Write(ele + " ");
 
             Console.WriteLine();
             Console.Write("The distinct-element array: ");
@@ -216,7 +219,7 @@ namespace PF_NguyenTranTienDat.Learning
                 List<int> duplicate = new List<int>();
                 for (int i = 0; i < a.Length; i++)
                 {
-                    for (int j = i + 1; 
+                    for (int j = i + 1;
                         j < a.Length; j++)
                     {
                         if (a[i] == a[j] && !duplicate.Contains(a[i]))
@@ -232,7 +235,7 @@ namespace PF_NguyenTranTienDat.Learning
             int[] RemoveDuplicatedElement(int[] a)
             {
                 //method 1: return array.Distinct().ToArray();
-                
+
                 List<int> result = new List<int>();
                 int[] dup = GetDuplicatedElement(a); // Get the distinct duplicate values
                 HashSet<int> duplicates = new HashSet<int>(dup); // Use a HashSet for efficient lookups
@@ -255,13 +258,13 @@ namespace PF_NguyenTranTienDat.Learning
             {
                 for (int i = 0; i < a.Length - 1; i++)
                 {
-                    for(int j = 0; j < a.Length - i - 1; j++)
+                    for (int j = 0; j < a.Length - i - 1; j++)
                     {
-                        if (a[j] > a[j+1])
+                        if (a[j] > a[j + 1])
                         {
                             int temp = a[j];
-                            a[j] = a[j+1];
-                            a[j+1] = temp;
+                            a[j] = a[j + 1];
+                            a[j + 1] = temp;
                         }
                     }
                 }
@@ -282,9 +285,9 @@ namespace PF_NguyenTranTienDat.Learning
             string[] word = input.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
 
             bool contain = false;
-            for(int i = 0; i < word.Length; i++)
+            for (int i = 0; i < word.Length; i++)
             {
-                if(word[i] == word_searched_normalized)
+                if (word[i] == word_searched_normalized)
                 {
                     contain = true;
                 }
@@ -408,7 +411,7 @@ namespace PF_NguyenTranTienDat.Learning
                 SortArray(jagged_a[i]);
             }
             Console.WriteLine("Ascendingly sorted jagged array: ");
-            for(int i = 0;i < jagged_a.Length;i++)
+            for (int i = 0; i < jagged_a.Length; i++)
             {
                 print_array(jagged_a[i]);
             }
@@ -424,7 +427,7 @@ namespace PF_NguyenTranTienDat.Learning
             }
 
             List<int> PrimeOfJaggedArray = new List<int>();
-            for (int i = 0;i < jagged_a.Length;i++)
+            for (int i = 0; i < jagged_a.Length; i++)
             {
                 PrimeOfJaggedArray.AddRange(GetPrimeOfArray(jagged_a[i]));
             }
@@ -444,22 +447,22 @@ namespace PF_NguyenTranTienDat.Learning
             int key = int.Parse(Console.ReadLine());
             for (int i = 0; i < jagged_a.Length; i++)
             {
-                foreach(int idx in GetIndex(jagged_a[i], key))
+                foreach (int idx in GetIndex(jagged_a[i], key))
                 {
                     Console.WriteLine($"Position(s) of {key} in row #{i} is: ({i},{idx})");
                 }
             }
         }
-            //public function
+        //public function
         static int[] SortArray(int[] a)
         {
             for (int i = 0; i < a.Length - 1; i++)
             {
-                for(int j = 0; j < a.Length - i - 1;j++)
+                for (int j = 0; j < a.Length - i - 1; j++)
                 {
-                    if(a[j] > a[j+1])
+                    if (a[j] > a[j + 1])
                     {
-                        SwapTwoElements(ref a[j], ref a[j+1]);
+                        SwapTwoElements(ref a[j], ref a[j + 1]);
                     }
                 }
             }
@@ -489,18 +492,18 @@ namespace PF_NguyenTranTienDat.Learning
         static int[] GetPrimeOfArray(int[] a)
         {
             List<int> PrimeList = new List<int>();
-            for(int i = 0; i < a.Length; i++)
+            for (int i = 0; i < a.Length; i++)
             {
-                if(IsPrime(a[i]))
+                if (IsPrime(a[i]))
                     PrimeList.Add(a[i]);
             }
             return PrimeList.ToArray();
         }
 
-        static int[] GetIndex(int[]a,int key)
+        static int[] GetIndex(int[] a, int key)
         {
             List<int> IndexList = new List<int>();
-            for(int i = 0;i < a.Length;i++)
+            for (int i = 0; i < a.Length; i++)
             {
                 if (a[i] == key)
                 {
@@ -510,11 +513,143 @@ namespace PF_NguyenTranTienDat.Learning
             return IndexList.ToArray();
         }
 
-        static void the_X_company()
+        //Create a program with following functions
+        //- Create an integermatrix N x M(N, M was prompted from user) randomly.
+        //- Printthe matrix.
+        //- Print the ith row/column. (i was prompted from user)
+        //- Find the max value of the matrix.
+        //- Find the min value of ith row/col of the matrix.
+        //- Transpose the matrix.
+        //- Print the main/secondarydiagonal values of the matrix.
+
+        static void Matrix_exc()
         {
+            int[,] matrix = InitializeMatrix();
+            GenerateElement(matrix);
+            PrintMatrix(matrix);
+            int num = initializenum();
+            PrintSelectively(matrix, num);
+            int max = GetMax(matrix);
+            Console.WriteLine();
+            Console.WriteLine($"Max = {max}");
+            int min = GetMinofIndex(matrix, num);
+            Console.WriteLine($"Min of column {num} = {min}");
+
+            int[,] matrix_transposed = Transpose(matrix);
+            PrintMatrix(matrix_transposed);
 
         }
 
+        private static int[,] InitializeMatrix()
+        {
+            Console.Write("Enter the number(s) of row: "); int row = int.Parse(Console.ReadLine());
+            Console.Write("Enter the numbers(s) of column: "); int col = int.Parse(Console.ReadLine());
+
+            int[,] matrix = new int[row, col];
+            return matrix;
+        }
+
+        static void GenerateElement(int[,] matrix)
+        {
+            Random random = new Random();
+            for (int i = 0; i < matrix.GetLength(0); i++)
+            {
+                for (int j = 0; j < matrix.GetLength(1); j++)
+                {
+                    matrix[i, j] = random.Next(100);
+                }
+            }
+        }
+
+        static void PrintMatrix(int[,] matrix)
+        {
+            for (int i = 0; i < matrix.GetLength(0); i++)
+            {
+                for (int j = 0; j < matrix.GetLength(1); j++)
+                {
+                    Console.Write($"{matrix[i, j]}\t");
+                }
+                Console.WriteLine();
+            }
+        }
+
+        static void PrintSelectively(int[,] matrix, int index)
+        {
+            //while (true)
+            //{
+            //    Console.WriteLine("Choose an action:");
+            //    Console.WriteLine("1. Select row");
+            //    Console.WriteLine("2. Select column");
+            //    Console.WriteLine("3. Exit");
+
+            //    int choice = int.Parse(Console.ReadLine());
+
+            //    switch (choice)
+            //    {
+            //        case 1:
+            //        case 2:
+            //        case 3:
+            //            return;
+            //        default:
+            //            Console.WriteLine("Invalid choice.");
+            //            break;
+            //    }
+            //}
+
+            //}
+
+            for (int i = 0; i < matrix.GetLength(1); i++)
+            {
+                Console.Write($"{matrix[i, index]}\t");
+            }
+        }
+        static int initializenum()
+        {
+            Console.Write("index = ");
+            int num = int.Parse(Console.ReadLine());
+            return num;
+        }
+
+        static int GetMax(int[,] matrix)
+        {
+            int max = 0;
+            for (int i = 0; i < matrix.GetLength(0); i++)
+            {
+                for (int j = 0; j < matrix.GetLength(1); j++)
+                {
+                    if (matrix[i, j] > max) { max = matrix[i, j]; }
+                }
+            }
+            return max;
+        }
+
+        static int GetMinofIndex(int[,] matrix, int index)
+        {
+            int min = 100000;
+            for (int i = 0; i < matrix.GetLength(1); i++)
+            {
+                if ((matrix[i, index] < min))
+                {
+                    min = matrix[i, index];
+                }
+            }
+            return min;
+        }
+
+        static int[,] Transpose(int[,] matrix)
+        {
+            for (int i = 0; i < matrix.GetLength(0); i++)
+            {
+                for (int j = i+1; j < matrix.GetLength(0); j++)
+                {
+                    int temp = matrix[i, j];
+                    matrix[i, j] = matrix[j, i];
+                    matrix[j, i] = temp;
+                }
+            }
+            return matrix;
+        }
     }
 }
+
     
