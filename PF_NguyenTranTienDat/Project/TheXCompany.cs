@@ -161,215 +161,216 @@ public class CompanyGroupsNoStruct
             new int[] { 301, 302, 303, 304, 305, 306 } // IDs for group 3
         };
 
-    //    string[][] names = new string[][]
-    //    {
-    //        new string[] { "Alice Smith", "Bob Johnson", "Eve Jackson","Paul Mick", "Jungle Yi" },
-    //        new string[] { "Charlie Brown", "David Lee" ,"John Thomas"},
-    //        new string[] { "Frank Miller", "Grace Wilson", "Helen Thomas", "Ivy Roberts" ,"Millet Sung","Grace Olivia"}
-    //    };
+        //    string[][] names = new string[][]
+        //    {
+        //        new string[] { "Alice Smith", "Bob Johnson", "Eve Jackson","Paul Mick", "Jungle Yi" },
+        //        new string[] { "Charlie Brown", "David Lee" ,"John Thomas"},
+        //        new string[] { "Frank Miller", "Grace Wilson", "Helen Thomas", "Ivy Roberts" ,"Millet Sung","Grace Olivia"}
+        //    };
 
-    //    int[][] tasks = new int[][]
-    //    {
-    //        new int[] { 5, 3, 8, 6, 2 },
-    //        new int[] { 7, 8, 9},
-    //        new int[] { 4, 9, 3, 6,5,4 }
-    //    };
+        //    int[][] tasks = new int[][]
+        //    {
+        //        new int[] { 5, 3, 8, 6, 2 },
+        //        new int[] { 7, 8, 9},
+        //        new int[] { 4, 9, 3, 6,5,4 }
+        //    };
 
-    //    //Menu for selection
-    //    while (true)
-    //    {
-    //        Console.WriteLine("Choose an action:");
-    //        Console.WriteLine("1. Print all members");
-    //        Console.WriteLine("2. Print member by IDs");
-    //        Console.WriteLine("3. Print member with most tasks");
-    //        Console.WriteLine("4. Print member with fewest tasks by group");
-    //        Console.WriteLine("5. Exit");
+        //    //Menu for selection
+        //    while (true)
+        //    {
+        //        Console.WriteLine("Choose an action:");
+        //        Console.WriteLine("1. Print all members");
+        //        Console.WriteLine("2. Print member by IDs");
+        //        Console.WriteLine("3. Print member with most tasks");
+        //        Console.WriteLine("4. Print member with fewest tasks by group");
+        //        Console.WriteLine("5. Exit");
 
-    //        int choice = int.Parse(Console.ReadLine());
+        //        int choice = int.Parse(Console.ReadLine());
 
-    //        switch (choice)
-    //        {
-    //            case 1:
-    //                PrintAllMembers(ids, names, tasks);
-    //                break;
-    //            case 2:
-    //                Console.Write("Enter Member's IDs (seperated by blank space) to look up information: ");
-    //                string input = Console.ReadLine();
+        //        switch (choice)
+        //        {
+        //            case 1:
+        //                PrintAllMembers(ids, names, tasks);
+        //                break;
+        //            case 2:
+        //                Console.Write("Enter Member's IDs (seperated by blank space) to look up information: ");
+        //                string input = Console.ReadLine();
 
-    //                string[] values = input.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+        //                string[] values = input.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
 
-    //                int[] ids_lookup = new int[values.Length];
+        //                int[] ids_lookup = new int[values.Length];
 
-    //                for(int  i = 0; i < values.Length; i++)
-    //                {
-    //                    ids_lookup[i] = int.Parse(values[i]);
-    //                }
+        //                for(int  i = 0; i < values.Length; i++)
+        //                {
+        //                    ids_lookup[i] = int.Parse(values[i]);
+        //                }
 
-    //                PrintMemberByIDs(ids, names, tasks, ids_lookup);
-    //                break;
-    //            case 3:
-    //                PrintMemberWithMostTasks(ids, names, tasks);
-    //                break;
-    //            case 4:
-    //                Console.Write("Enter the number of group: ");
-    //                int group = int.Parse(Console.ReadLine());
-    //                PrintMemberWithFewestTasksByGroup(ids, names, tasks,group);
-    //                break;
-    //            case 5:
-    //                return; // Exit the program
-    //            default:
-    //                Console.WriteLine("Invalid choice.");
-    //                break;
-    //        }
-    //    }
-    //}
+        //                PrintMemberByIDs(ids, names, tasks, ids_lookup);
+        //                break;
+        //            case 3:
+        //                PrintMemberWithMostTasks(ids, names, tasks);
+        //                break;
+        //            case 4:
+        //                Console.Write("Enter the number of group: ");
+        //                int group = int.Parse(Console.ReadLine());
+        //                PrintMemberWithFewestTasksByGroup(ids, names, tasks,group);
+        //                break;
+        //            case 5:
+        //                return; // Exit the program
+        //            default:
+        //                Console.WriteLine("Invalid choice.");
+        //                break;
+        //        }
+        //    }
+        //}
 
-    static void PrintAllMembers(int [][] ids,string [][] names, int [][] tasks)
-    {
-        for(int i = 0; i < ids.Length; i++)
+        static void PrintAllMembers(int[][] ids, string[][] names, int[][] tasks)
         {
-            Console.WriteLine($"Group {i+1}: ");
-            for(int j = 0; j < ids[i].Length; j++)
+            for (int i = 0; i < ids.Length; i++)
             {
-                Console.WriteLine($"- ID: {ids[i][j]}, Name: {names[i][j]}, Total task completed: {tasks[i][j]}");
-            }
-        }
-    }
-
-    static void PrintMemberByID(int[][] ids, string[][] names, int[][] tasks, int id_lookup)
-    {
-        for(int i = 0;i < ids.Length; i++)
-        {
-            for(int j = 0;j < ids[i].Length; j++)
-            {
-                if (ids[i][j] == id_lookup)
+                Console.WriteLine($"Group {i + 1}: ");
+                for (int j = 0; j < ids[i].Length; j++)
                 {
-                    Console.WriteLine($"- Name: {names[i][j]}, Total task completed: {tasks[i][j]}");
-                    return;
+                    Console.WriteLine($"- ID: {ids[i][j]}, Name: {names[i][j]}, Total task completed: {tasks[i][j]}");
                 }
             }
         }
-        Console.WriteLine("Member not found.");
-    }
 
-    static void PrintMemberByIDs(int[][] ids, string[][] names, int[][] tasks, int[] ids_lookup)
-    {
-        foreach (int idToFind in ids_lookup)
+        static void PrintMemberByID(int[][] ids, string[][] names, int[][] tasks, int id_lookup)
         {
-            bool found = false;
             for (int i = 0; i < ids.Length; i++)
             {
                 for (int j = 0; j < ids[i].Length; j++)
                 {
-                    if (ids[i][j] == idToFind)
+                    if (ids[i][j] == id_lookup)
                     {
-                        Console.WriteLine($"- ID: {ids[i][j]}, Name: {names[i][j]}, Total task completed: {tasks[i][j]}");
-                        found = true;
-                        break; // Exit inner loop once found
+                        Console.WriteLine($"- Name: {names[i][j]}, Total task completed: {tasks[i][j]}");
+                        return;
                     }
                 }
-                if (found) break; // Exit outer loop once found
             }
-            if (!found)
-            {
-                Console.WriteLine($"Member with ID {idToFind} not found.");
-            }
+            Console.WriteLine("Member not found.");
         }
-    }
 
-    static void PrintMemberWithMostTasks(int[][] ids, string[][] names, int[][] tasks)
-    {
-        int maxTasks = -1;
-        List<int> idsWithMaxTasks = new List<int>();
-
-        for(int i = 0; i < tasks.Length; i++)
+        static void PrintMemberByIDs(int[][] ids, string[][] names, int[][] tasks, int[] ids_lookup)
         {
-            for(int j = 0; j < tasks[i].Length; j++)
+            foreach (int idToFind in ids_lookup)
             {
-                if (tasks[i][j] > maxTasks)
+                bool found = false;
+                for (int i = 0; i < ids.Length; i++)
                 {
-                    maxTasks = tasks[i][j];
-                    // Clear previous IDs since we found a new max
-                    idsWithMaxTasks.Clear();
-                    idsWithMaxTasks.Add(ids[i][j]);
+                    for (int j = 0; j < ids[i].Length; j++)
+                    {
+                        if (ids[i][j] == idToFind)
+                        {
+                            Console.WriteLine($"- ID: {ids[i][j]}, Name: {names[i][j]}, Total task completed: {tasks[i][j]}");
+                            found = true;
+                            break; // Exit inner loop once found
+                        }
+                    }
+                    if (found) break; // Exit outer loop once found
                 }
-                else if (tasks[i][j] == maxTasks)
+                if (!found)
                 {
-                    // Add ID if it also has the max tasks
-                    idsWithMaxTasks.Add(ids[i][j]);
+                    Console.WriteLine($"Member with ID {idToFind} not found.");
                 }
             }
         }
 
-        if(idsWithMaxTasks.Count > 0)
+        static void PrintMemberWithMostTasks(int[][] ids, string[][] names, int[][] tasks)
         {
-            Console.WriteLine("Member(s) with the most tasks:");
-            PrintMemberByIDs(ids, names, tasks, idsWithMaxTasks.ToArray());
-        }
+            int maxTasks = -1;
+            List<int> idsWithMaxTasks = new List<int>();
 
-        else
-        {
-            Console.WriteLine("No members found.");
-        }
-    }
-
-    //static void PrintMemberWithFewestTasksByGroup(int[][] ids, string[][] names, int[][] tasks, int group)
-    //{
-    //    int minTasks = -1;
-    //    List<int> idsWithMinTasks = new List<int>();
-    //    for (int i = group; i < tasks[group].Length; i++)
-    //    {
-    //        if(tasks[group][i] < minTasks)
-    //        {
-    //            minTasks = tasks[group][i];
-    //            idsWithMinTasks.Add(ids[group][i]);
-    //        }
-    //    }
-    //    if(idsWithMinTasks.Count > 0)
-    //    {
-    //        Console.WriteLine("Member(s) with the fewest tasks:");
-    //        PrintMemberByIDs(ids, names, tasks, idsWithMinTasks.ToArray());
-    //    }
-    //    else
-    //    {
-    //        Console.WriteLine("No members found.");
-    //    }
-    //}
-
-    static void PrintMemberWithFewestTasksByGroup(int[][] ids, string[][] names, int[][] tasks, int group)
-    {
-        group = group - 1;
-        if (group < 0 || group >= tasks.Length)
-        {
-            Console.WriteLine("Invalid group number.");
-            return;
-        }
-
-        int minTasks = 1000; // Initialize to maximum possible value
-        List<int> idsWithMinTasks = new List<int>();
-
-        for (int j = 0; j < tasks[group].Length; j++)
-        {
-            if (tasks[group][j] < minTasks)
+            for (int i = 0; i < tasks.Length; i++)
             {
-                minTasks = tasks[group][j];
-                idsWithMinTasks.Clear(); // Clear the list because we found a new minimum
-                idsWithMinTasks.Add(ids[group][j]);
+                for (int j = 0; j < tasks[i].Length; j++)
+                {
+                    if (tasks[i][j] > maxTasks)
+                    {
+                        maxTasks = tasks[i][j];
+                        // Clear previous IDs since we found a new max
+                        idsWithMaxTasks.Clear();
+                        idsWithMaxTasks.Add(ids[i][j]);
+                    }
+                    else if (tasks[i][j] == maxTasks)
+                    {
+                        // Add ID if it also has the max tasks
+                        idsWithMaxTasks.Add(ids[i][j]);
+                    }
+                }
             }
-            else if (tasks[group][j] == minTasks)
+
+            if (idsWithMaxTasks.Count > 0)
             {
-                idsWithMinTasks.Add(ids[group][j]); // Add to the list if it's also the minimum
+                Console.WriteLine("Member(s) with the most tasks:");
+                PrintMemberByIDs(ids, names, tasks, idsWithMaxTasks.ToArray());
+            }
+
+            else
+            {
+                Console.WriteLine("No members found.");
             }
         }
 
-        if (idsWithMinTasks.Count > 0)
+        //static void PrintMemberWithFewestTasksByGroup(int[][] ids, string[][] names, int[][] tasks, int group)
+        //{
+        //    int minTasks = -1;
+        //    List<int> idsWithMinTasks = new List<int>();
+        //    for (int i = group; i < tasks[group].Length; i++)
+        //    {
+        //        if(tasks[group][i] < minTasks)
+        //        {
+        //            minTasks = tasks[group][i];
+        //            idsWithMinTasks.Add(ids[group][i]);
+        //        }
+        //    }
+        //    if(idsWithMinTasks.Count > 0)
+        //    {
+        //        Console.WriteLine("Member(s) with the fewest tasks:");
+        //        PrintMemberByIDs(ids, names, tasks, idsWithMinTasks.ToArray());
+        //    }
+        //    else
+        //    {
+        //        Console.WriteLine("No members found.");
+        //    }
+        //}
+
+        static void PrintMemberWithFewestTasksByGroup(int[][] ids, string[][] names, int[][] tasks, int group)
         {
-            Console.WriteLine($"Member(s) with the fewest tasks in group {group + 1}:");
-            PrintMemberByIDs(ids, names, tasks, idsWithMinTasks.ToArray());
-        }
-        else
-        {
-            Console.WriteLine($"No members found in group {group + 1}."); // More specific message
+            group = group - 1;
+            if (group < 0 || group >= tasks.Length)
+            {
+                Console.WriteLine("Invalid group number.");
+                return;
+            }
+
+            int minTasks = 1000; // Initialize to maximum possible value
+            List<int> idsWithMinTasks = new List<int>();
+
+            for (int j = 0; j < tasks[group].Length; j++)
+            {
+                if (tasks[group][j] < minTasks)
+                {
+                    minTasks = tasks[group][j];
+                    idsWithMinTasks.Clear(); // Clear the list because we found a new minimum
+                    idsWithMinTasks.Add(ids[group][j]);
+                }
+                else if (tasks[group][j] == minTasks)
+                {
+                    idsWithMinTasks.Add(ids[group][j]); // Add to the list if it's also the minimum
+                }
+            }
+
+            if (idsWithMinTasks.Count > 0)
+            {
+                Console.WriteLine($"Member(s) with the fewest tasks in group {group + 1}:");
+                PrintMemberByIDs(ids, names, tasks, idsWithMinTasks.ToArray());
+            }
+            else
+            {
+                Console.WriteLine($"No members found in group {group + 1}."); // More specific message
+            }
         }
     }
 }
