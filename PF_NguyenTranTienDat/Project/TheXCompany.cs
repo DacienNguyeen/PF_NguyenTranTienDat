@@ -151,7 +151,7 @@ using System.Threading.Tasks;
 
 public class CompanyGroupsNoStruct
 {
-    static void Main(string[] args)
+    static void Main3(string[] args)
     {
         // Parallel arrays to store member data
         int[][] ids = new int[][]
