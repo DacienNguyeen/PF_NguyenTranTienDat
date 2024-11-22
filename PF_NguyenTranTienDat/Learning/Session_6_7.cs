@@ -11,7 +11,7 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace PF_NguyenTranTienDat.Learning
 {
-    internal class Session_6
+    internal class Session_6_7
     {
         static void Main2(string[] args)
         {
