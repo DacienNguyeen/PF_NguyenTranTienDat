@@ -9,7 +9,7 @@ namespace PF_NguyenTranTienDat.Learning
 {
     internal class String
     {
-        static void Main(string[] args)
+        static void Main5(string[] args)
         {
             PrintString(TestString1());
             Console.WriteLine($"Length of test tring is: {GetStringLength(TestString1())}");
